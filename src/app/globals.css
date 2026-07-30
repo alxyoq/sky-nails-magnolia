@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ---- Sky Nails brand ------------------------------------------- */
+    --bone: 40 33% 96%;          /* #F8F5EF warm paper            */
+    --bone-deep: 38 24% 92%;     /* soft card wash                */
+    --ink: 187 33% 8%;           /* #0E1A1C deep teal-black       */
+    --ink-soft: 189 22% 14%;     /* elevated dark surface         */
+    --teal: 180 76% 35%;         /* #15A0A0 primary               */
+    --teal-deep: 183 66% 22%;    /* hover / text on light         */
+    --aqua: 173 47% 68%;         /* #7FD8D0 light accent          */
+    --champagne: 37 51% 70%;     /* #D9BE8A metallic secondary    */
+    --blush: 8 55% 82%;          /* #EDBCB2 tertiary              */
+
+    /* ---- shadcn mapping -------------------------------------------- */
+    --background: var(--bone);
+    --foreground: var(--ink);
+    --card: 0 0% 100%;
+    --card-foreground: var(--ink);
+    --popover: 0 0% 100%;
+    --popover-foreground: var(--ink);
+    --primary: var(--teal);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--bone-deep);
+    --secondary-foreground: var(--ink);
+    --muted: var(--bone-deep);
+    --muted-foreground: 190 8% 40%;
+    --accent: var(--aqua);
+    --accent-foreground: var(--ink);
+    --destructive: 4 66% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 38 18% 86%;
+    --input: 38 18% 86%;
+    --ring: var(--teal);
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  ::selection {
+    background: hsl(var(--teal));
+    color: #fff;
+  }
+
+  /* Slim, on-brand scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--bone-deep));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--teal) / 0.5);
+    border-radius: 99px;
+    border: 3px solid hsl(var(--bone-deep));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--teal));
+  }
+}
+
+@layer components {
+  .font-display {
+    font-family: var(--font-instrument), Georgia, serif;
+    font-weight: 400;
+  }
+
+  /* Small uppercase label used above every section heading */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.34em];
+  }
+
+  .eyebrow::before,
+  .eyebrow::after {
+    content: "";
+    @apply h-px w-8 bg-current opacity-40;
+  }
+
+  /* Dotted leader between a service name and its price */
+  .leader {
+    @apply mx-3 min-w-6 flex-1 self-end border-b border-dotted border-foreground/25;
+    margin-bottom: 0.35rem;
+  }
+
+  .container-x {
+    @apply mx-auto w-full max-w-[1220px] px-5 sm:px-8 lg:px-10;
+  }
+}
+
+@layer utilities {
+  /* Fine film grain that keeps large flat areas from looking sterile */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  /* Soft atmospheric "sky" wash */
+  .sky-wash {
+    background-image:
+      radial-gradient(60rem 32rem at 12% -10%, hsl(var(--aqua) / 0.35), transparent 60%),
+      radial-gradient(48rem 28rem at 92% 8%, hsl(var(--champagne) / 0.3), transparent 62%),
+      radial-gradient(40rem 30rem at 50% 108%, hsl(var(--teal) / 0.14), transparent 65%);
+  }
+
+  .sky-wash-dark {
+    background-image:
+      radial-gradient(55rem 30rem at 8% 0%, hsl(var(--teal) / 0.3), transparent 60%),
+      radial-gradient(45rem 26rem at 96% 92%, hsl(var(--champagne) / 0.16), transparent 62%);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* ---- Motion ------------------------------------------------------- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes sheen {
+  from {
+    background-position: -180% 0;
+  }
+  to {
+    background-position: 180% 0;
+  }
+}
+
+.animate-rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.animate-fade {
+  animation: fade 1.1s ease both;
+}
+.animate-drift {
+  animation: drift 9s ease-in-out infinite;
+}
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+/* Reveal-on-scroll (driven by IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
