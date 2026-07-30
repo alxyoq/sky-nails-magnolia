@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, Manrope } from "next/font/google";
 import "./globals.css";
-import ClientBody from "./ClientBody";
-import Script from "next/script";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { MobileCallBar } from "@/components/mobile-call-bar";
@@ -86,27 +84,17 @@ export default function RootLayout({
       className={`${instrument.variable} ${manrope.variable}`}
     >
       <head>
-        <Script
-          crossOrigin="anonymous"
-          src="//unpkg.com/react-grab/dist/index.global.js"
-        />
-        <Script
-          crossOrigin="anonymous"
-          src="//unpkg.com/same-runtime/dist/index.global.js"
-        />
         <script
           type="application/ld+json"
           // biome-ignore lint/security/noDangerouslySetInnerHtml: structured data
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className="antialiased">
-        <ClientBody>
-          <SiteHeader />
-          <main className="pb-16 lg:pb-0">{children}</main>
-          <SiteFooter />
-          <MobileCallBar />
-        </ClientBody>
+      <body className="antialiased">
+        <SiteHeader />
+        <main className="pb-16 lg:pb-0">{children}</main>
+        <SiteFooter />
+        <MobileCallBar />
       </body>
     </html>
   );

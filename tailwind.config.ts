@@ -65,6 +65,13 @@ export default {
         lift: '0 26px 60px -30px hsl(var(--ink) / 0.45)',
         card: '0 1px 2px hsl(var(--ink) / 0.05), 0 18px 40px -28px hsl(var(--ink) / 0.35)',
       },
+      transitionDuration: {
+        '900': '900ms',
+        '1400': '1400ms',
+      },
+      transitionTimingFunction: {
+        editorial: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
@@ -89,5 +96,5 @@ export default {
       },
     }
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 } satisfies Config;

@@ -38,7 +38,7 @@ export default function GalleryPage() {
                   src={shot.src}
                   alt={shot.alt}
                   loading="lazy"
-                  className="w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+                  className="w-full object-cover transition-transform duration-900 ease-out group-hover:scale-[1.06]"
                 />
                 <span className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-ink/80 via-ink/10 to-transparent p-5 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                   <span className="text-[11px] uppercase tracking-[0.18em] text-bone">

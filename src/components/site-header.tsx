@@ -127,6 +127,7 @@ export function SiteHeader() {
 
       {/* Mobile drawer */}
       <div
+        aria-hidden={!open}
         className={cn(
           "fixed inset-0 z-40 lg:hidden",
           open ? "pointer-events-auto" : "pointer-events-none",
@@ -144,7 +145,7 @@ export function SiteHeader() {
         />
         <div
           className={cn(
-            "sky-wash-dark absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col bg-ink px-7 pb-10 pt-24 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
+            "sky-wash-dark absolute inset-y-0 right-0 flex w-[86%] max-w-sm flex-col bg-ink px-7 pb-10 pt-24 transition-transform duration-500 ease-editorial",
             open ? "translate-x-0" : "translate-x-full",
           )}
         >
@@ -153,6 +154,7 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
+                tabIndex={open ? 0 : -1}
                 style={{ transitionDelay: open ? `${120 + i * 55}ms` : "0ms" }}
                 className={cn(
                   "flex items-baseline gap-4 border-b border-bone/10 py-4 font-display text-3xl text-bone transition-all duration-500",
@@ -172,6 +174,7 @@ export function SiteHeader() {
           <div className="mt-auto space-y-4 pt-10">
             <a
               href={BUSINESS.phoneHref}
+              tabIndex={open ? 0 : -1}
               className="flex items-center justify-center gap-2 bg-aqua px-5 py-4 text-sm font-semibold tracking-[0.08em] text-ink"
             >
               <PhoneIcon className="h-4 w-4" />

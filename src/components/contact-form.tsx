@@ -10,14 +10,42 @@ const labelClass =
   "mb-2 block text-[10px] font-semibold uppercase tracking-[0.22em] text-ink/45";
 
 export function ContactForm() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSent(true);
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setStatus("submitting");
+
+    const form = event.currentTarget;
+    const body = new URLSearchParams();
+
+    new FormData(form).forEach((value, key) => {
+      if (typeof value === "string") {
+        body.append(key, value);
+      }
+    });
+
+    try {
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Form submission failed with ${response.status}`);
+      }
+
+      form.reset();
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   };
 
-  if (sent) {
+  if (status === "success") {
     return (
       <div className="flex h-full min-h-[420px] flex-col items-center justify-center border border-teal/25 bg-teal/[0.06] p-10 text-center">
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-teal text-white">
@@ -46,7 +74,7 @@ export function ContactForm() {
         </p>
         <button
           type="button"
-          onClick={() => setSent(false)}
+          onClick={() => setStatus("idle")}
           className="mt-8 border border-ink/20 px-6 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:border-teal hover:text-teal"
         >
           Send another
@@ -57,9 +85,22 @@ export function ContactForm() {
 
   return (
     <form
+      name="appointment-request"
+      method="POST"
       onSubmit={handleSubmit}
       className="border border-ink/12 bg-white p-8 lg:p-10"
     >
+      <input
+        type="hidden"
+        name="form-name"
+        value="appointment-request"
+      />
+      <p className="hidden" aria-hidden="true">
+        <label>
+          Do not fill this out:
+          <input name="bot-field" tabIndex={-1} autoComplete="off" />
+        </label>
+      </p>
       <p className="eyebrow text-teal">Request a time</p>
       <h3 className="mt-5 font-display text-[clamp(1.9rem,4vw,2.6rem)] leading-tight text-ink">
         Tell us what you need
@@ -135,13 +176,26 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-ink px-8 py-4 text-sm font-semibold tracking-[0.06em] text-bone transition-colors hover:bg-teal sm:w-auto"
+        disabled={status === "submitting"}
+        className="group mt-8 inline-flex w-full items-center justify-center gap-3 bg-ink px-8 py-4 text-sm font-semibold tracking-[0.06em] text-bone transition-colors hover:bg-teal disabled:cursor-wait disabled:opacity-70 sm:w-auto"
       >
-        Send request
+        {status === "submitting" ? "Sending…" : "Send request"}
         <span className="transition-transform duration-300 group-hover:translate-x-1">
           →
         </span>
       </button>
+      {status === "error" && (
+        <p role="alert" className="mt-4 text-sm text-red-700">
+          We couldn&apos;t send your request. Please try again or call{" "}
+          <a
+            href={BUSINESS.phoneHref}
+            className="font-semibold underline underline-offset-4"
+          >
+            {BUSINESS.phone}
+          </a>
+          .
+        </p>
+      )}
       <p className="mt-4 text-xs text-ink/40">
         This form is not a confirmed booking. We will reach out to lock in your
         time.

@@ -40,7 +40,7 @@ export function GalleryPreview() {
                 src={shot.src}
                 alt={shot.alt}
                 loading="lazy"
-                className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]"
+                className="h-full w-full object-cover transition-transform duration-900 ease-out group-hover:scale-[1.07]"
               />
               <span className="pointer-events-none absolute inset-0 bg-teal/0 transition-colors duration-500 group-hover:bg-teal/15" />
             </Reveal>

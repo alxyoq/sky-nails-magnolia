@@ -137,7 +137,7 @@ export function Hero() {
                 src={slide.src}
                 alt={slide.alt}
                 className={cn(
-                  "absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-[1400ms] ease-out",
+                  "absolute inset-0 h-full w-full object-cover transition-[opacity,transform] duration-1400 ease-out",
                   i === index
                     ? "scale-100 opacity-100"
                     : "scale-105 opacity-0",
