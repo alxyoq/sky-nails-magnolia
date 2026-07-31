@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { MobileCallBar } from "@/components/mobile-call-bar";
+import { PurchaseWebsiteButton } from "@/components/purchase-website-button";
 import { BUSINESS } from "@/lib/site";
 
 const instrument = Instrument_Serif({
@@ -95,6 +96,7 @@ export default function RootLayout({
         <main className="pb-16 lg:pb-0">{children}</main>
         <SiteFooter />
         <MobileCallBar />
+        <PurchaseWebsiteButton />
       </body>
     </html>
   );
