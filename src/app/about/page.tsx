@@ -81,21 +81,21 @@ export default function AboutPage() {
               <div className="col-span-2 aspect-[16/10] overflow-hidden shadow-card">
                 <img
                   src={IMAGES.studio}
-                  alt="The Sky Nails salon floor"
+                  alt="Light-filled salon reception area"
                   className="h-full w-full object-cover"
                 />
               </div>
               <div className="aspect-square overflow-hidden shadow-card">
                 <img
                   src={IMAGES.manicure}
-                  alt="A gel manicure in progress"
+                  alt="Prepared salon station with a folded blue towel"
                   className="h-full w-full object-cover"
                 />
               </div>
               <div className="aspect-square overflow-hidden shadow-card">
                 <img
                   src={IMAGES.waxing}
-                  alt="Eyebrow waxing service"
+                  alt="Quiet beauty treatment room with blue accents"
                   className="h-full w-full object-cover"
                 />
               </div>

@@ -11,14 +11,14 @@ export function Welcome() {
           <div className="relative aspect-[4/5] w-[78%] overflow-hidden shadow-lift">
             <img
               src={IMAGES.studio}
-              alt="Inside the Sky Nails salon in Magnolia"
+              alt="Light-filled salon reception area"
               className="h-full w-full object-cover"
             />
           </div>
           <div className="absolute bottom-[-6%] right-0 aspect-square w-[52%] overflow-hidden border-[10px] border-white shadow-lift">
             <img
               src={IMAGES.detail}
-              alt="Close-up of a finished gel manicure"
+              alt="Folded spa towels with eucalyptus and a candle"
               className="h-full w-full object-cover"
             />
           </div>

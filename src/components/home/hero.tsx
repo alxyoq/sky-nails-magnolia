@@ -6,9 +6,9 @@ import { BUSINESS, IMAGES } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 const SLIDES = [
-  { src: IMAGES.hero, alt: "Freshly finished almond gel manicure" },
-  { src: IMAGES.heroAlt, alt: "Hands resting after a gel manicure" },
-  { src: IMAGES.pedicure, alt: "Pedicure with soft neutral polish" },
+  { src: IMAGES.hero, alt: "Light-filled salon interior with pale blue chairs" },
+  { src: IMAGES.heroAlt, alt: "Pale blue salon chair beside an arched mirror" },
+  { src: IMAGES.pedicure, alt: "Empty pedicure lounge with blue accents" },
 ];
 
 export function Hero() {

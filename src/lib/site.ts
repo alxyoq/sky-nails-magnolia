@@ -75,18 +75,18 @@ export const IMAGES = {
 } as const;
 
 export const GALLERY = [
-  { src: "/img/g1.webp", alt: "Almond gel set with nail art" },
-  { src: "/img/g2.webp", alt: "Soft French tips with accent detail" },
-  { src: "/img/g3.webp", alt: "Pink floral 3D nail design" },
-  { src: "/img/g4.webp", alt: "Milky white ombré nails" },
-  { src: "/img/g5.webp", alt: "Stiletto set with gold foil" },
-  { src: "/img/g6.webp", alt: "Nude acrylic with chrome accents" },
-  { src: "/img/g7.webp", alt: "Dark chrome mirror nails" },
-  { src: "/img/g8.webp", alt: "Long almond nails with glitter" },
-  { src: "/img/g9.webp", alt: "Black nails with hand painted flowers" },
-  { src: "/img/g10.webp", alt: "Champagne nails with gold leaf" },
-  { src: "/img/g11.webp", alt: "Sheer milky set with pearl detail" },
-  { src: "/img/g12.webp", alt: "Dark floral encapsulated nail art" },
+  { src: "/img/g1.webp", alt: "Light-filled salon interior with pale blue chairs" },
+  { src: "/img/g2.webp", alt: "Empty pedicure lounge with blue glass basins" },
+  { src: "/img/g3.webp", alt: "Modern salon reception area with greenery" },
+  { src: "/img/g4.webp", alt: "Polish bottles organized by color" },
+  { src: "/img/g5.webp", alt: "Prepared salon station with a folded blue towel" },
+  { src: "/img/g6.webp", alt: "Sanitized salon tools and fresh towels" },
+  { src: "/img/g7.webp", alt: "Spa towels with eucalyptus and a candle" },
+  { src: "/img/g8.webp", alt: "Quiet beauty treatment room with blue accents" },
+  { src: "/img/g9.webp", alt: "Child-friendly salon waiting nook" },
+  { src: "/img/g10.webp", alt: "White wash basin with a brass faucet" },
+  { src: "/img/g11.webp", alt: "Pale blue salon chair beside an arched mirror" },
+  { src: "/img/g12.webp", alt: "Beauty products and gift boxes on pale wood shelves" },
 ] as const;
 
 /* --------------------------------------------------------------- services */

@@ -4,9 +4,9 @@ import { Reveal } from "@/components/reveal";
 import { BUSINESS, GALLERY } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Gallery",
+  title: "Salon Gallery",
   description:
-    "Nail art, gel sets, ombré, chrome and classic French from Sky Nails in Magnolia, NJ. Bring in a photo and our technicians will recreate it.",
+    "A mood board of calm salon interiors, thoughtful details and the welcoming atmosphere Sky Nails aims to create in Magnolia, NJ.",
 };
 
 export default function GalleryPage() {
@@ -14,15 +14,15 @@ export default function GalleryPage() {
     <>
       <PageHero
         crumb="Gallery"
-        eyebrow="Our work"
+        eyebrow="The atmosphere"
         title={
           <>
-            Bring a photo.
+            Clean details.
             <br />
-            <span className="italic text-teal">We&apos;ll match it.</span>
+            <span className="italic text-teal">Calm surroundings.</span>
           </>
         }
-        lead="Hand-painted art, chrome, ombré, encapsulated florals and clean classic French — all done in the chair at 208 N White Horse Pike."
+        lead="A mood board for the bright, polished and easygoing experience we want every guest to have at 208 N White Horse Pike."
       />
 
       <section className="bg-bone py-16 lg:py-24">
@@ -55,7 +55,7 @@ export default function GalleryPage() {
         <div className="container-x flex flex-col items-center gap-6 text-center">
           <p className="eyebrow text-aqua">Ready when you are</p>
           <h2 className="max-w-2xl font-display text-[clamp(2.2rem,5vw,3.6rem)] leading-tight text-bone">
-            Screenshot it, send it, or just show us at the desk
+            Have a look in mind? Bring it with you
           </h2>
           <p className="max-w-xl text-sm leading-relaxed text-bone/60">
             Text the photo to {BUSINESS.phone} before you come in and we will

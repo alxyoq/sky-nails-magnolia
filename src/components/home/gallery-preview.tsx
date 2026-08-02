@@ -20,13 +20,13 @@ export function GalleryPreview() {
     <section className="relative bg-bone py-20 lg:py-28">
       <div className="container-x">
         <SectionHeading
-          eyebrow="Recent work"
+          eyebrow="Salon mood"
           title={
             <>
-              Sets that walked out <span className="italic">this month</span>
+              Bright, clean, <span className="italic">easygoing</span>
             </>
           }
-          lead="Hand-painted art, chrome, ombré and clean classic French — everything below was done in the chair at Magnolia."
+          lead="A mood board for the calm, cared-for experience we want every guest to feel from the moment they walk in."
         />
 
         <div className="mt-14 grid auto-rows-[110px] grid-cols-3 gap-3 sm:auto-rows-[150px] lg:auto-rows-[180px] lg:grid-cols-4">
@@ -52,7 +52,7 @@ export function GalleryPreview() {
             href="/gallery"
             className="group inline-flex items-center gap-3 border border-ink/20 px-8 py-4 text-sm font-semibold uppercase tracking-[0.16em] text-ink transition-colors hover:border-teal hover:bg-teal hover:text-white"
           >
-            See the full gallery
+            Explore the gallery
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
